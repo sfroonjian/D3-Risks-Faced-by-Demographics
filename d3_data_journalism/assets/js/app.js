@@ -92,6 +92,16 @@ function makeResponsive(){
         return circlesGroup;
     }
 
+    function renderAbbr(abbrGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
+
+        abbrGroup.transition()
+            .duration(1000)
+            .attr("x", d => newXScale(d[chosenXAxis]))
+            .attr("y", d => newYScale(d[chosenYAxis]) + 4);
+
+        return abbrGroup;
+    }
+
     // function used for updating circles group with new tooltip
     function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
@@ -175,13 +185,22 @@ function makeResponsive(){
                 .append("circle")
                 .attr("cx", d => xLinearScale(d[chosenXAxis]))
                 .attr("cy", d => yLinearScale(d[chosenYAxis]))
-                .attr("r", 10)
+                .attr("r", 12)
                 .attr("fill", "#64d1cc")
+        
+        var stateAbbr = chartGroup.append("g")
+        
+        // append initial abbreviations
+        var abbrGroup = stateAbbr.selectAll("text")
+            .data(censusData)
+            .enter()
+                .append("text")
                 .text(d => d.abbr)
-                .attr("dx", d => xLinearScale(d[chosenXAxis]))
-                .attr("dy", d => yLinearScale(d[chosenYAxis]))
+                .attr("x", d => xLinearScale(d[chosenXAxis]))
+                .attr("y", d => yLinearScale(d[chosenYAxis]) + 3)
                 .attr("text-anchor", "middle")
-                .style("color", "black")
+                .style("color", "white")
+                .style("font-size", "8px")
 
         // Create group for x-axis labels
         var labelsGroupX = chartGroup.append("g")
@@ -257,6 +276,8 @@ function makeResponsive(){
                     // updates circles with new x and y values
                     circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
+                    abbrGroup = renderAbbr(abbrGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+
                     // updates tooltips with new info
                     circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
@@ -314,6 +335,8 @@ function makeResponsive(){
 
                     // updates circles with new y values
                     circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
+
+                    abbrGroup = renderAbbr(abbrGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
                     // updates tooltips with new info
                     circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
