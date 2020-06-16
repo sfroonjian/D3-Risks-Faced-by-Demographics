@@ -211,7 +211,7 @@ function makeResponsive(){
             .attr("y", 60)
             .attr("value", "income") // value to grab for event listener
             .classed("inactive", true)
-            .text("Household Income (Median)");
+            .text("Household Income (Median) ($)");
 
         var obeseLabel = labelsGroupY.append("text")
             .attr("x", 0 - (height / 2))
