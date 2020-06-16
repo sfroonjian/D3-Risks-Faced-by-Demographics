@@ -80,8 +80,7 @@ function makeResponsive(){
         return yAxis;
     }
 
-    // function used for updating circles group with a transition to
-    // new circles
+    // function used for updating circles with a transition to new circles
     function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
 
         circlesGroup.transition()
@@ -92,6 +91,7 @@ function makeResponsive(){
         return circlesGroup;
     }
 
+    // function used for updating state abbr with a transition to new locations
     function renderAbbr(abbrGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
 
         abbrGroup.transition()
@@ -276,6 +276,7 @@ function makeResponsive(){
                     // updates circles with new x and y values
                     circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
+                    // updates abbr with new x amd y values
                     abbrGroup = renderAbbr(abbrGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
                     // updates tooltips with new info
@@ -333,9 +334,10 @@ function makeResponsive(){
                     // updates y axis with transition
                     yAxis = renderAxesY(yLinearScale, yAxis);
 
-                    // updates circles with new y values
+                    // updates circles with new x and y values
                     circlesGroup = renderCircles(circlesGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
+                    // updates abbr with new x amd y values
                     abbrGroup = renderAbbr(abbrGroup, xLinearScale, yLinearScale, chosenXAxis, chosenYAxis);
 
                     // updates tooltips with new info
