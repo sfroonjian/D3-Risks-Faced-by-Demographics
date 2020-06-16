@@ -3,6 +3,43 @@
   border: 1px solid #e3e3e3;
 }
 
+.jumbotron {
+  text-align: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.container {
+  margin-right: 20px;
+  margin-left: 40px;
+}
+
+.tooltip {
+  position: absolute;
+  width: 135px;
+  height: 70px;
+  padding: 2px;
+  padding-top: 8px;
+  font: 12px sans-serif;
+  color: white;
+  text-align: center;
+  background: black;
+  border: 0;
+  border-radius: 10px;
+}
+
+#title {
+  font-size: 60px;
+}
+
+#graph-title {
+  text-align: center;
+}
+
+.article {
+  text-align: center;
+}
+
 /* Sticky Footer rules (https://getbootstrap.com/examples/sticky-footer/) */
 html {
   position: relative;
