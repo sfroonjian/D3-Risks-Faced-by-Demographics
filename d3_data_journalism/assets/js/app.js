@@ -127,7 +127,13 @@ function makeResponsive(){
             .attr("class", "tooltip")
             .offset([80, -60])
             .html(function (d) {
-                return (`${d.state}<br>${labelX} ${d[chosenXAxis]}<br>${labelY} ${d[chosenYAxis]}%`);
+                if (chosenXAxis === "poverty") {
+                    return (`${d.state}<br>${labelX} ${d[chosenXAxis]}%<br>${labelY} ${d[chosenYAxis]}%`);
+                } else if (chosenXAxis === "age") {
+                    return (`${d.state}<br>${labelX} ${d[chosenXAxis]}<br>${labelY} ${d[chosenYAxis]}%`);
+                } else {
+                    return (`${d.state}<br>${labelX} ${d[chosenXAxis].toLocaleString('en-US', { style: 'currency', currency: 'USD' })}<br>${labelY} ${d[chosenYAxis]}%`);
+                };
             });
 
         circlesGroup.call(toolTip);
