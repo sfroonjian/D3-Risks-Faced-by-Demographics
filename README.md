@@ -1,5 +1,5 @@
 ### Purpose of this project:
-The purpose of this project is to analyze the health risks facing particular demographics. Specifically, this project looks to see if poverty, age, and household income has any correlation to obesity, smoking, and lack of healthcare. To make it easy for readers to understand the findings, all the data is compiled into one interactive graph where users can pick and choose which paring of variables to view.
+The purpose of this project is to analyze the health risks facing particular demographics. Specifically, this project looks to see if poverty, age, or household income has any correlation to obesity, smoking, and lack of healthcare. To make it easy for readers to understand the findings, all the data is compiled into one interactive graph where users can pick and choose which paring of variables to view.
 
 ---
 
